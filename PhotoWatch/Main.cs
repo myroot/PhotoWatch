@@ -12,10 +12,7 @@ namespace PhotoWatch
         {
             base.OnCreate();
             var watchfaceApp = new PhotoWatchApp();
-            var model = new ClockViewModel()
-            {
-                CurrentBackground = "default.jpg"
-            };
+            var model = new ClockViewModel();
 
             model.LoadFromPreference();
             model.UpdateBackgroundImage();

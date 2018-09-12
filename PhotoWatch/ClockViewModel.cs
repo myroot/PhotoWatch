@@ -146,7 +146,7 @@ namespace PhotoWatch
         {
             if (BackgroundItems.Count < 1)
             {
-                CurrentBackground = "default.jpg";
+                CurrentBackground = "default.png";
                 return;
             }
             _currentBackgroundIndex = (++_currentBackgroundIndex) % BackgroundItems.Count;

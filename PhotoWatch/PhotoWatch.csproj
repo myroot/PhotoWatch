@@ -11,6 +11,9 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>None</DebugType>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="res\default2.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="lib\" />
