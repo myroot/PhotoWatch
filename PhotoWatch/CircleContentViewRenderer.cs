@@ -1,8 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
-
+using Xamarin.Forms;
 using Xamarin.Forms.Platform.Tizen;
-
 
 [assembly: ExportRenderer(typeof(PhotoWatch.CircleContentView), typeof(PhotoWatch.CircleContentViewRenderer))]
 namespace PhotoWatch
@@ -11,18 +9,24 @@ namespace PhotoWatch
     {
         ElmSharp.EvasImage _circleImage;
 
-        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Layout> e)
         {
-            base.OnElementPropertyChanged(sender, e);
-            _circleImage = new ElmSharp.EvasImage(Forms.NativeParent);
-            _circleImage.IsFilled = true;
-            _circleImage.File = ResourcePath.GetPath("circle.png");
-            _circleImage.Show();
-            _circleImage.Geometry = Control.Geometry;
-            Control.SetClip(_circleImage);
-            Control.LayoutUpdated += OnLayoutUpdated;
-            Control.Moved += Control_Moved;
-            Control.Deleted += Control_Deleted;
+            base.OnElementChanged(e);
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                if (_circleImage != null)
+                {
+                    _circleImage = new ElmSharp.EvasImage(Forms.NativeParent);
+                    _circleImage.IsFilled = true;
+                    _circleImage.File = ResourcePath.GetPath("circle.png");
+                    _circleImage.Show();
+                    _circleImage.Geometry = Control.Geometry;
+                    Control.SetClip(_circleImage);
+                    Control.LayoutUpdated += OnLayoutUpdated;
+                    Control.Moved += Control_Moved;
+                    Control.Deleted += Control_Deleted;
+                }
+            });
         }
 
         private void Control_Deleted(object sender, EventArgs e)
