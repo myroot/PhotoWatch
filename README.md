@@ -2,6 +2,8 @@
 
 PhotoWatch sample application is a Watch Face application which demonstrates how to make a watch face application for Tizen wearable devices.
 
+[![Demo](http://img.youtube.com/vi/NV228UNalXE/0.jpg)](http://www.youtube.com/watch?v=NV228UNalXE)
+
 ![img1](./docs/1.png)
 ![img2](./docs/2.png)
 ![img3](./docs/3.png)
