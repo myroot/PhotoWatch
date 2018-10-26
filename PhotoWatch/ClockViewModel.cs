@@ -35,6 +35,28 @@ namespace PhotoWatch
             }
         }
 
+        double _translationX;
+        public double BGTranslationX
+        {
+            get => _translationX;
+            set
+            {
+                _translationX = value;
+                OnPropertyChanged();
+            }
+        }
+
+        double _translationY;
+        public double BGTranslationY
+        {
+            get => _translationY;
+            set
+            {
+                _translationY = value;
+                OnPropertyChanged();
+            }
+        }
+
         bool _settingEnabled;
         public bool SettingEnabled
         {

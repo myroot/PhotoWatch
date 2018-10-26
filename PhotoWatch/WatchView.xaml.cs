@@ -28,7 +28,7 @@ namespace PhotoWatch
         int _totalMinute;
         int _minute;
 
-        public WatchView ()
+        public WatchView()
         {
             InitializeComponent();
         }

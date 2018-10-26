@@ -9,7 +9,8 @@
         </ResourceDictionary>
     </ContentView.Resources>
     <AbsoluteLayout InputTransparent="true">
-        <Image AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"
+        <Image AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" Scale="1.11"
+               TranslationX="{Binding BGTranslationX}" TranslationY="{Binding BGTranslationY}"
                Source="{Binding CurrentBackground}" Aspect="AspectFill" IsVisible="{Binding IsNormalMode}"/>
         <StackLayout AbsoluteLayout.LayoutBounds="1, 0.5, 0.25, 0.5" AbsoluteLayout.LayoutFlags="All" InputTransparent="True" Orientation="Horizontal">
             <Label HorizontalOptions="End" VerticalOptions="Center" Text="{Binding Time, StringFormat='{0:dd}'}"

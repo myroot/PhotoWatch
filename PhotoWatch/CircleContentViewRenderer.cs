@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Tizen;
 
@@ -12,21 +13,26 @@ namespace PhotoWatch
         protected override void OnElementChanged(ElementChangedEventArgs<Layout> e)
         {
             base.OnElementChanged(e);
-            Device.BeginInvokeOnMainThread(() =>
+            if (_circleImage == null)
             {
-                if (_circleImage != null)
-                {
-                    _circleImage = new ElmSharp.EvasImage(Forms.NativeParent);
-                    _circleImage.IsFilled = true;
-                    _circleImage.File = ResourcePath.GetPath("circle.png");
-                    _circleImage.Show();
-                    _circleImage.Geometry = Control.Geometry;
-                    Control.SetClip(_circleImage);
-                    Control.LayoutUpdated += OnLayoutUpdated;
-                    Control.Moved += Control_Moved;
-                    Control.Deleted += Control_Deleted;
-                }
-            });
+                _circleImage = new ElmSharp.EvasImage(Forms.NativeParent);
+                _circleImage.IsFilled = true;
+                _circleImage.File = ResourcePath.GetPath("circle.png");
+                _circleImage.Show();
+                _circleImage.Geometry = Control.Geometry;
+                _circleImage.PassEvents = true;
+                Control.SetClip(_circleImage);
+                Control.LayoutUpdated += OnLayoutUpdated;
+                Control.Moved += Control_Moved;
+                Control.Deleted += Control_Deleted;
+            }
+        }
+
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+            _circleImage.Geometry = Control.Geometry;
+            Control.SetClip(_circleImage);
         }
 
         private void Control_Deleted(object sender, EventArgs e)

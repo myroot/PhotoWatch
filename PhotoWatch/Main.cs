@@ -8,6 +8,7 @@ namespace PhotoWatch
     class Program : FormsWatchface
     {
         ClockViewModel _viewModel;
+        MotionUpdater _motion;
         protected override void OnCreate()
         {
             base.OnCreate();
@@ -18,13 +19,27 @@ namespace PhotoWatch
             model.UpdateBackgroundImage();
             _viewModel = model;
             watchfaceApp.BindingContext = _viewModel;
+
+            if (Tizen.Sensor.Gyroscope.IsSupported)
+            {
+                _motion = new MotionUpdater(model);
+            }
+            
+
             LoadWatchface(watchfaceApp);
         }
 
         protected override void OnPause()
         {
             _viewModel.UpdateBackgroundImage();
+            _motion?.Stop();
             base.OnPause();
+        }
+
+        protected override void OnResume()
+        {
+            _motion?.Start();
+            base.OnResume();
         }
 
         protected override void OnTick(TimeEventArgs time)
