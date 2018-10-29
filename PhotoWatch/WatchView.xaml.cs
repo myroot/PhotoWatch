@@ -20,6 +20,42 @@ namespace PhotoWatch
         }
     }
 
+    public class ThanosConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return (int)((double)value * 0.5);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return null;
+        }
+    }
+
+    public class MoreThanosConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var v = (int)((double)value * 0.5);
+            if (v > 0)
+            {
+                v += 1;
+            }
+            else if (v < 0)
+            {
+                v -= 1;
+            }
+            return v;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return null;
+        }
+    }
+
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WatchView : ContentView
     {
@@ -45,13 +81,23 @@ namespace PhotoWatch
             int totalMinute = (Time.Hour % 12) * 60 + Time.Minute;
             
             if (totalMinute != _totalMinute)
+            {
                 Hour.TimeHandTo(totalMinute);
+                Hour_s.TimeHandTo(totalMinute);
+            }
 
             if (_minute != Time.Minute)
+            {
                 Min.MinuteHandTo(Time.Minute);
+                Min_s.MinuteHandTo(Time.Minute);
+            }
+                
 
             if (Second.IsVisible)
+            {
                 Second.SecondHandTo(Time.Second);
+                Second_s.SecondHandTo(Time.Second);
+            }
 
             _totalMinute = totalMinute;
             _minute = Time.Minute;
