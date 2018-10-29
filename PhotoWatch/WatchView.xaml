@@ -24,28 +24,28 @@
                FontSize="8"  AbsoluteLayout.LayoutFlags="PositionProportional" Text="{Binding Time, StringFormat='{0:hh\\:mm}'}"/>
 
         <Image x:Name="Hour_s" AbsoluteLayout.LayoutBounds="0.5, 0.5, 34, 360" AbsoluteLayout.LayoutFlags="PositionProportional"
-               TranslationX="{Binding BGTranslationX, Converter={StaticResource thanos}}" TranslationY="{Binding BGTranslationY, Converter={StaticResource thanos}}"
+               TranslationX="{Binding BGTranslationX, Converter={StaticResource thanos}}" TranslationY="{Binding BGTranslationY, Converter={StaticResource thanos2}}"
                InputTransparent="True"
                Source="classic_hr_shadow.png"/>
         <Image x:Name="Hour" AbsoluteLayout.LayoutBounds="0.5, 0.5, 34, 360" AbsoluteLayout.LayoutFlags="PositionProportional"
-               TranslationX="{Binding BGTranslationX, Converter={StaticResource thanos2}}" TranslationY="{Binding BGTranslationY, Converter={StaticResource thanos2}}"
+               TranslationX="{Binding BGTranslationX, Converter={StaticResource thanos}}" TranslationY="{Binding BGTranslationY, Converter={StaticResource thanos}}"
                InputTransparent="True"
                Source="classic_hr.png"/>
         <Image x:Name="Min_s" AbsoluteLayout.LayoutBounds="0.5, 0.5, 34, 360" AbsoluteLayout.LayoutFlags="PositionProportional"
-               TranslationX="{Binding BGTranslationX, Converter={StaticResource thanos}}" TranslationY="{Binding BGTranslationY, Converter={StaticResource thanos}}"
+               TranslationX="{Binding BGTranslationX, Converter={StaticResource thanos}}" TranslationY="{Binding BGTranslationY, Converter={StaticResource thanos2}}"
                InputTransparent="True"
                Source="classic_min_shadow.png"/>
         <Image x:Name="Min" AbsoluteLayout.LayoutBounds="0.5, 0.5, 34, 360" AbsoluteLayout.LayoutFlags="PositionProportional"
-               TranslationX="{Binding BGTranslationX, Converter={StaticResource thanos2}}" TranslationY="{Binding BGTranslationY, Converter={StaticResource thanos2}}"
+               TranslationX="{Binding BGTranslationX, Converter={StaticResource thanos}}" TranslationY="{Binding BGTranslationY, Converter={StaticResource thanos}}"
                InputTransparent="True"
                Source="classic_min.png"/>
         <Image x:Name="Second_s" AbsoluteLayout.LayoutBounds="0.5, 0.5, 34, 360" AbsoluteLayout.LayoutFlags="PositionProportional"
-               TranslationX="{Binding BGTranslationX, Converter={StaticResource thanos}}" TranslationY="{Binding BGTranslationY, Converter={StaticResource thanos}}"
+               TranslationX="{Binding BGTranslationX, Converter={StaticResource thanos}}" TranslationY="{Binding BGTranslationY, Converter={StaticResource thanos2}}"
                IsVisible="{Binding IsNormalMode}"
                InputTransparent="True"
                Source="classic_sec_shadow.png"/>
         <Image x:Name="Second" AbsoluteLayout.LayoutBounds="0.5, 0.5, 34, 360" AbsoluteLayout.LayoutFlags="PositionProportional"
-               TranslationX="{Binding BGTranslationX, Converter={StaticResource thanos2}}" TranslationY="{Binding BGTranslationY, Converter={StaticResource thanos2}}"
+               TranslationX="{Binding BGTranslationX, Converter={StaticResource thanos}}" TranslationY="{Binding BGTranslationY, Converter={StaticResource thanos}}"
                IsVisible="{Binding IsNormalMode}"
                InputTransparent="True"
                Source="classic_sec.png"/>

@@ -37,16 +37,7 @@ namespace PhotoWatch
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var v = (int)((double)value * 0.5);
-            if (v > 0)
-            {
-                v += 1;
-            }
-            else if (v < 0)
-            {
-                v -= 1;
-            }
-            return v;
+            return (int)((double)value * 0.5) + 1;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
