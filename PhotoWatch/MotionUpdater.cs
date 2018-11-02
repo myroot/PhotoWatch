@@ -38,8 +38,8 @@ namespace PhotoWatch
         {
             if (Math.Abs(e.Y) > 1 && Math.Abs(e.Y) < 300)
             {
-                var newvalue = _model.BGTranslationX + e.Y / 30.0;
-                _model.BGTranslationX = Math.Clamp(newvalue, -20, 20);
+                var newvalue = _model.BGTranslationX + e.Y / 25.0;
+                _model.BGTranslationX = Math.Clamp(newvalue, -25, 25);
 
                 if (e.Y / 10.0 > 1)
                     xResetCounter = 0;
@@ -55,8 +55,8 @@ namespace PhotoWatch
             }
             if (Math.Abs(e.X) > 1 && Math.Abs(e.X) < 300)
             {
-                var newvalue = _model.BGTranslationY + e.X / 30.0;
-                _model.BGTranslationY = Math.Clamp(newvalue, -20, 20);
+                var newvalue = _model.BGTranslationY + e.X / 25.0;
+                _model.BGTranslationY = Math.Clamp(newvalue, -25, 25);
 
                 if (e.X / 10.0 > 1)
                     yResetCounter = 0;
